@@ -18,7 +18,14 @@ public class Main {
         Department fictionDepartment = new Department("Fiction");
         Category novelCategory = new Category("Novels");
         Book book = new Book("To Kill a Mockingbird", "Harper Lee", "Fiction", 1960, 12.99);
+        Book book1 = new Book("МетодичкаА", "Решетов Сергей", "Fiction", 2023, 3);
+
+        Book book2 = new Book("МетодичкаB", "Решетов Сергей", "Fiction", 2022, 4);
+
         novelCategory.addBook(book);
+        novelCategory.addBook(book1);
+        novelCategory.addBook(book2);
+
         fictionDepartment.addCategory(novelCategory);
         bookstore.addDepartment(fictionDepartment);
 
@@ -28,5 +35,22 @@ public class Main {
 
         // Поиск книг по жанру
         List<Book> booksByGenre = bookstore.searchBooksByGenre("Fiction");
+
+        addOrder(bookstore);
+
     }
+
+    private static void addOrder(Bookstore bookstore) {
+        Order order = new Order();
+
+        Book book1 = new Book("МетодичкаА", "Решетов Сергей", "Fiction", 2023, 3);
+
+        Book book2 = new Book("МетодичкаB", "Решетов Сергей", "Fiction", 2022, 4);
+
+        order.addBook(book1);
+        order.addBook(book2);
+
+        Order orderResult = bookstore.checkOrder(order);
+    }
+
 }
