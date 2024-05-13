@@ -8,15 +8,23 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс для чтения из файлов.
+ */
 public class FileReader {
-    private static final Logger log = Logger.getLogger(FileReader.class);
+    private static final Logger LOG = Logger.getLogger(FileReader.class);
 
-    public static List<String> readFromFile(String fileName) {
+    /**
+     * Метод для считывания из файла
+     * @param fileName имя файла
+     * @return
+     */
+    public static List<String> readFromFile(final String fileName) {
         List<String> lines = new ArrayList(); 
         try {
             lines = Files.readAllLines(Path.of(fileName));
         } catch (IOException exception) {
-            log.error(exception.getMessage());
+            LOG.error(exception.getMessage());
         }
         return lines;
     }
