@@ -1,12 +1,12 @@
 pipeline {
     agent any
-    stages 
+    
+    stages {
         stage("Compile code") {
             environment {
                 JAVA_HOME = '/usr/local/Cellar/openjdk/21.0.3/libexec/openjdk.jdk/Contents/Home'
                 MAVEN_HOME = '/usr/local/Cellar/maven/3.9.6/libexec'
             }
-
             steps {
                 sh '/usr/local/Cellar/maven/3.9.6/libexec/bin/mvn clean compile'
             }
@@ -24,7 +24,7 @@ pipeline {
                 branch 'develop'
             }
             steps {
-                sh '/usr/local/Cellar/maven/3.9.6/libexec/bin/mvn checkstyle:check'
+                sh '/usr/local/Cellar/maven/3.9.6/libexec/bin/mvncheckstyle:check'
             }
         }
         stage("Report") {
@@ -43,8 +43,8 @@ pipeline {
         }
         stage("Publish") {
             steps {
-                sh 'copy "main\\target\\main-1.0-SNAPSHOT-jar-with-dependencies.jar" Users\\main-1.0.jar"'
+                sh 'copy "main\\target\\main-1.0-SNAPSHOT-jar-with-dependencies.jar" "Users\main-1.0.jar"'
             }
+        }
     }
 }
-
