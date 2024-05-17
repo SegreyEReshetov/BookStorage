@@ -1,10 +1,15 @@
 pipeline {
     agent any
-    
-    stages {
+    stages 
         stage("Compile code") {
+            environment {
+                // Указываем переменные окружения для использования JDK и Maven
+                JAVA_HOME = '/usr/local/Cellar/openjdk/21.0.3/libexec/openjdk.jdk/Contents/Home'
+                MAVEN_HOME = '/usr/local/Cellar/maven/3.9.6/libexec'
+            }
+
             steps {
-                sh '/usr/local/apache-maven-3.6.3/bin/mvn clean compile'
+                sh '/usr/local/Cellar/maven/3.9.6/libexec/bin/mvn clean compile'
             }
         }
         stage("Tests") {
@@ -12,7 +17,7 @@ pipeline {
                 branch 'feature/*'
             }
             steps {
-                sh '/usr/local/apache-maven-3.6.3/bin/mvn test'
+                sh '/usr/local/Cellar/maven/3.9.6/libexec/bin/mvn test'
             }
         }
         stage("Static analyse") {
@@ -20,7 +25,7 @@ pipeline {
                 branch 'develop'
             }
             steps {
-                sh '/usr/local/apache-maven-3.6.3/bin/mvn checkstyle:check'
+                sh '/usr/local/Cellar/maven/3.9.6/libexec/bin/mvn checkstyle:check'
             }
         }
         stage("Report") {
@@ -34,7 +39,7 @@ pipeline {
         }
         stage("Install") {
             steps {
-                sh '/usr/local/apache-maven-3.6.3/bin/mvn install'
+                sh '/usr/local/Cellar/maven/3.9.6/libexec/bin/mvn install'
             }
         }
         stage("Publish") {
