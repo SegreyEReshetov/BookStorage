@@ -3,7 +3,6 @@ pipeline {
     stages 
         stage("Compile code") {
             environment {
-                // Указываем переменные окружения для использования JDK и Maven
                 JAVA_HOME = '/usr/local/Cellar/openjdk/21.0.3/libexec/openjdk.jdk/Contents/Home'
                 MAVEN_HOME = '/usr/local/Cellar/maven/3.9.6/libexec'
             }
@@ -46,6 +45,6 @@ pipeline {
             steps {
                 sh 'copy "main\\target\\main-1.0-SNAPSHOT-jar-with-dependencies.jar" Users\\main-1.0.jar"'
             }
-        }
     }
 }
+
