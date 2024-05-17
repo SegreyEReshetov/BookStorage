@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage("Compile code") {
             steps {
-                sh 'mvn clean compile'
+                sh '/usr/local/apache-maven-3.6.3/bin/mvn clean compile'
             }
         }
         stage("Tests") {
@@ -12,7 +12,7 @@ pipeline {
                 branch 'feature/*'
             }
             steps {
-                sh 'mvn test'
+                sh '/usr/local/apache-maven-3.6.3/bin/mvn test'
             }
         }
         stage("Static analyse") {
@@ -20,7 +20,7 @@ pipeline {
                 branch 'develop'
             }
             steps {
-                sh 'mvn checkstyle:check'
+                sh '/usr/local/apache-maven-3.6.3/bin/mvn checkstyle:check'
             }
         }
         stage("Report") {
@@ -34,7 +34,7 @@ pipeline {
         }
         stage("Install") {
             steps {
-                sh 'mvn install'
+                sh '/usr/local/apache-maven-3.6.3/bin/mvn install'
             }
         }
         stage("Publish") {
