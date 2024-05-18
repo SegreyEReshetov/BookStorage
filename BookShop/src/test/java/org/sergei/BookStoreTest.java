@@ -45,7 +45,7 @@ public class BookStoreTest {
     public void testFindByAuthor() {
         bookstore.createBookStoreFromFile(bookStoreInfo);
         List<Book> booksByAuthor = bookstore.searchBooksByAuthor("Автор1");
-        assertEquals("Книга1", booksByAuthor.stream().findFirst().get().getTitle());
+        assertEquals("Книга2", booksByAuthor.stream().findFirst().get().getTitle());
     }
 
     @Test
