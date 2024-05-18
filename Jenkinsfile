@@ -49,7 +49,7 @@ pipeline {
         
         stage("Publish") {
             steps {
-                sh 'cp main/target/main-1.0-SNAPSHOT-jar-with-dependencies.jar /Users/resetovsergej/Desktop/main-1.0.jar'
+                sh 'cp main/target/main-1.0-SNAPSHOT-jar-with-dependencies.jar /Users/resetovsergej/Desktop'
             }
         }
     }
