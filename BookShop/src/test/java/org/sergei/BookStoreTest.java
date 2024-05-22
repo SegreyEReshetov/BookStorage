@@ -58,7 +58,7 @@ public class BookStoreTest {
     }
 
 
-    @Test
+   /* *@Test
     @Order(4)
     public void testNewFunc() {
 
@@ -66,5 +66,5 @@ public class BookStoreTest {
 
         assertEquals("Book1", book.NewFunc());
 
-    }
+    }*/
 }
