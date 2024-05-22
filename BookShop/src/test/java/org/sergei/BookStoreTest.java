@@ -56,4 +56,15 @@ public class BookStoreTest {
         List<Book> booksByGenre = bookstore.searchBooksByGenre("Б");
         assertEquals("Книга3", booksByGenre.stream().findFirst().get().getTitle());
     }
+
+
+    @Test
+    @Order(4)
+    public void testNewFunc() {
+
+        Book book = new Book("Book1", "Author1", "Novel", 1987, 5000) ;
+
+        assertEquals("Book1", book.NewFunc());
+
+    }
 }

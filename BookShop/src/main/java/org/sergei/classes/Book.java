@@ -77,4 +77,9 @@ public class Book {
                 ", price=" + price +
                 '}';
     }
+
+
+    public String NewFunc(){
+        return title;
+       }
 }
