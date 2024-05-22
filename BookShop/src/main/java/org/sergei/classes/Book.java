@@ -79,7 +79,7 @@ public class Book {
     }
 
 
-    public String NewFunc(){
+    public String NewFunc() {
         return title;
        }
 }
